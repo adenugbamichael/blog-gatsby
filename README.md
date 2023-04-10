@@ -6,7 +6,7 @@
 </p>
 <h1 align="center">
 <a href="#">
-   <img alt="gatsby static blog demo" src="./src/images/blog.gif"/>
+   <img width="697" height="661" alt="gatsby static blog demo" src="./src/images/blog.gif"/>
   </a><br />
   Gatsby's default starter
 
