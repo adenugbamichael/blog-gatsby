@@ -103,7 +103,7 @@ const IndexPage = () => (
             className={styles.listItemLink}
             href={`${link.url}${utmParameters}`}
           >
-            {link.text} ↗
+            {link.text}
           </a>
           <p className={styles.listItemDescription}>{link.description}</p>
         </li>
