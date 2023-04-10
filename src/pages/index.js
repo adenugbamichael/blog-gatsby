@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
@@ -69,9 +69,9 @@ const moreLinks = [
 
 const utmParameters = `?utm_source=starter&utm_medium=start-page&utm_campaign=default-starter`
 
-const IndexPage = () => (
+const IndexPage = ({ data }) => (
   <Layout>
-    <div className={styles.textCenter}>
+    {/* <div className={styles.textCenter}>
       <StaticImage
         src="../images/example.png"
         loading="eager"
@@ -95,7 +95,21 @@ const IndexPage = () => (
         <br />
         Edit <code>src/pages/index.js</code> to update this page.
       </p>
+    </div> */}
+
+    <div>
+      <h1>Dev Tips</h1>
+      <h4>{data.allMarkdownRemark.totalCount}</h4>
+      {data.allMarkdownRemark.edges.map(({ node }) => (
+        <div key={node.id}>
+          <span>
+            {node.frontmatter.title} - {node.frontmatter.date}
+          </span>
+          <p>{node.excerpt}</p>
+        </div>
+      ))}
     </div>
+
     <ul className={styles.list}>
       {links.map(link => (
         <li key={link.url} className={styles.listItem}>
@@ -126,3 +140,22 @@ const IndexPage = () => (
 export const Head = () => <Seo title="Home" />
 
 export default IndexPage
+
+export const query = graphql`
+  query {
+    allMarkdownRemark {
+      totalCount
+      edges {
+        node {
+          id
+          frontmatter {
+            description
+            title
+            date
+          }
+          excerpt
+        }
+      }
+    }
+  }
+`
