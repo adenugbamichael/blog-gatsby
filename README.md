@@ -3,6 +3,9 @@
   <a href="https://www.gatsbyjs.com">
     <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
   </a>
+    <a href="#">
+   <img height="346" width="645" alt="3D Portfolio Website with Three.js and React.js demo" src="./src/images/blog.gif"/>
+  </a>
 </p>
 <h1 align="center">
   Gatsby's default starter
